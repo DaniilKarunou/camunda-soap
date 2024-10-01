@@ -1,0 +1,51 @@
+plugins {
+    id 'org.springframework.boot' version '3.2.2'
+    id 'io.spring.dependency-management' version '1.1.3'
+    id 'java'
+}
+
+group = 'com.soap.camunda'
+version = '1.0.0-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.boot:spring-boot-dependencies:3.2.2"
+        mavenBom "org.camunda.bpm:camunda-bom:7.21.0"
+    }
+}
+
+dependencies {
+    implementation 'org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-rest'
+    implementation 'org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-webapp'
+    implementation 'org.camunda.bpm:camunda-engine-plugin-spin'
+    implementation 'org.camunda.spin:camunda-spin-dataformat-all'
+
+    implementation 'org.springframework.boot:spring-boot-starter-web-services'
+
+    implementation 'jakarta.xml.bind:jakarta.xml.bind-api:3.0.1'
+    implementation 'org.glassfish.jaxb:jaxb-runtime:3.0.2'
+    implementation 'jakarta.xml.ws:jakarta.xml.ws-api:3.0.0'
+    implementation 'com.sun.xml.ws:jaxws-rt:3.0.0'
+
+    implementation 'com.h2database:h2'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+
+    implementation 'wsdl4j:wsdl4j:1.6.3'
+
+    compileOnly 'org.projectlombok:lombok:1.18.34'
+    annotationProcessor 'org.projectlombok:lombok:1.18.34'
+    testCompileOnly 'org.projectlombok:lombok:1.18.34'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.34'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.ws:spring-ws-test'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

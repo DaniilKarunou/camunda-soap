@@ -1,0 +1,22 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://example.com/soapcamunda"
+           xmlns="http://example.com/soapcamunda"
+           elementFormDefault="qualified">
+
+    <xs:element name="StartProcessRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="processKey" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="StartProcessResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="message" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
